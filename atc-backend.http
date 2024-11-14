@@ -1,0 +1,6 @@
+@atc_backend_HostAddress = http://localhost:5010
+
+GET {{atc_backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
