@@ -1,6 +1,8 @@
 ﻿using atc_backend.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace atc_backend.Controllers
 {
@@ -8,10 +10,12 @@ namespace atc_backend.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
+        private readonly IConfiguration _configuration;
         private readonly ApplicationDbContext _context;
-        public UsersController(ApplicationDbContext _context)
+        public UsersController(ApplicationDbContext context, IConfiguration configuration)
         {
-            this._context = _context;
+            context = _context;
+            configuration = _configuration;
         }
 
         [HttpPost]
@@ -49,6 +53,10 @@ namespace atc_backend.Controllers
             var user = _context.Users.FirstOrDefault(x => x.UserName == loginDTO.UserName && x.Password == loginDTO.Password);
             if (user != null)
             {
+                var claims = new[]
+                {
+                    new Claim(JwtRegisteredClaimNames.Sub, )
+                }
                 return Ok(user);
             }
             else
