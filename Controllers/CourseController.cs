@@ -44,7 +44,7 @@ namespace atc_backend.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCourse(int id, Course course)
         {
-            if (id != course.Id)
+            if (id != course.CourseId)
             {
                 return BadRequest();
             }
@@ -77,7 +77,7 @@ namespace atc_backend.Controllers
             _context.Courses.Add(course);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetCourse), new { id = course.Id }, course);
+            return CreatedAtAction(nameof(GetCourse), new { id = course.CourseId }, course);
         }
 
         // DELETE: api/Courses/5
@@ -98,7 +98,7 @@ namespace atc_backend.Controllers
 
         private bool CourseExists(int id)
         {
-            return _context.Courses.Any(e => e.Id == id);
+            return _context.Courses.Any(e => e.CourseId == id);
         }
     }
 }

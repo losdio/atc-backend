@@ -12,5 +12,9 @@ namespace atc_backend.Models
         // Define your DbSets here
         public DbSet<ApplicationUser> Users { get; set; }
         public DbSet<Course> Courses { get; set; }
+        public DbSet<Certificates> Certificates { get; set; }
+        public DbSet<Trainer> Trainers { get; set; }
+        public DbSet<Trainee> Trainees { get; set; }
+
     }
 }

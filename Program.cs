@@ -34,7 +34,7 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("RequireAdministratorRole", policy => policy.RequireRole("Admin"));
+    //options.AddPolicy("RequireAdministratorRole", policy => policy.RequireRole("Admin"));
 });
 
 // Configure MySQL connection
